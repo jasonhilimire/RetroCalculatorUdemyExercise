@@ -96,7 +96,7 @@ class ViewController: UIViewController {
                     result = "\(Double(leftValStr)! - Double(rightValStr)!)"
                 } else if currentOperation == Operation.Add {
                     result = "\(Double(leftValStr)! + Double(rightValStr)!)"
-                }
+                } 
                 
                 leftValStr = result
                 outputLbl.text = result
@@ -109,8 +109,23 @@ class ViewController: UIViewController {
             runningNumber = ""
             currentOperation = operation
         }
+        
+        
     }
 
+    @IBAction func clearBtnPressed(_ sender: Any) {
+        // clear button  - set all value back to nil
+        runningNumber = ""
+        leftValStr = ""
+        rightValStr = ""
+        result = ""
+        
+        playSound()
+        currentOperation = Operation.Empty
+        outputLbl.text = "0"
+        
+    }
+  
 
 }
 

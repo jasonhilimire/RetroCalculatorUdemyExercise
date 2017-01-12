@@ -118,7 +118,7 @@ class ViewController: UIViewController {
 
     @IBAction func clearBtnPressed(_ sender: Any) {
         // clear button  - set all value back to nil
-        runningNumber.removeAll()  // can use this declertion rather than set all left & right & result values to nil individually
+        runningNumber.removeAll()  // can use this decleration rather than set all left & right & result values to nil individually
         playSound()
         currentOperation = Operation.Empty
         outputLbl.text = "0"

@@ -70,6 +70,7 @@ class ViewController: UIViewController {
     
     @IBAction func onEqualPressed(sender: AnyObject) {
         processOperation(operation: currentOperation)
+        
     }
     
     func playSound() {
@@ -96,7 +97,9 @@ class ViewController: UIViewController {
                     result = "\(Double(leftValStr)! - Double(rightValStr)!)"
                 } else if currentOperation == Operation.Add {
                     result = "\(Double(leftValStr)! + Double(rightValStr)!)"
-                } 
+                } else if currentOperation == Operation.Empty{
+                    result = ""
+                }
                 
                 leftValStr = result
                 outputLbl.text = result
@@ -115,17 +118,13 @@ class ViewController: UIViewController {
 
     @IBAction func clearBtnPressed(_ sender: Any) {
         // clear button  - set all value back to nil
-        runningNumber = ""
-        leftValStr = ""
-        rightValStr = ""
-        result = ""
-        
+        runningNumber.removeAll()  // can use this declertion rather than set all left & right & result values to nil individually
         playSound()
         currentOperation = Operation.Empty
         outputLbl.text = "0"
         
     }
   
-
+// TODO There is a crash in here if you can get it to have no rightVal and then press equal operator.  Having a hard time reproducging
 }
 
